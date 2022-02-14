@@ -13,11 +13,17 @@ Build and run:
 
 2. Build
 
-cd pubsub 
+```console
+cd pubsub_cpp
 colcon build --packages-select pubsub_cpp
+```
 
 3. Source environment extras for finding the new package
+```console
 . install/local_setup.bash 
+```
 
 4. Run
+```console
 ros2 launch pubsub_cpp pubsub.launch.py
+```
