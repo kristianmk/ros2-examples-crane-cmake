@@ -1,5 +1,5 @@
 # ros2-examples-pubsub-cmake
-Simple ROS2 example: one package, two nodes (one publisher, one subscriber). Tested with ROS2 Galactic.
+Simple ROS2 example: one package, two nodes (one publisher, one subscriber). MAS418 2022. Tested with ROS2 Galactic.
 
 One node is missing. Add it!
 
