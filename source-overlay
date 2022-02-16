@@ -1,0 +1,3 @@
+#!/bin/sh
+. install/local_setup.sh
+

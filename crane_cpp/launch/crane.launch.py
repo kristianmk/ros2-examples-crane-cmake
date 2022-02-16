@@ -11,7 +11,7 @@ def generate_launch_description():
             default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
             description='Prefix for node names'),
         launch_ros.actions.Node(
-            package='pubsub_cpp', executable='crane_commander', output='screen',
+            package='crane_cpp', executable='crane_commander', output='screen',
             name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'crane_commander']),
     ])
 

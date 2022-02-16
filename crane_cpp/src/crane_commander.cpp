@@ -16,7 +16,7 @@
 namespace crane{
    namespace config {
       using namespace std::chrono_literals;
-      const auto dt = 500ms
+      const auto dt = 500ms;
    }
 }
 
@@ -44,14 +44,14 @@ class CraneReferencePublisher : public rclcpp::Node
     void update_reference()
     {
       auto message = std_msgs::msg::String();
-      message.data = "Crane Publisher Node Testing " + std::to_string(count_++);
+      message.data = "Crane Publisher Node Testing " + std::to_string(step_++);
       RCLCPP_INFO(this->get_logger(), "Publishing Test Message: '%s'", message.data.c_str());
       publisher_->publish(message);
     }
 
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
-    size_t count_;
+    size_t step_;
     double craneCylinderVelocityReference_;
 };
 
