@@ -4,7 +4,7 @@
   <name>crane_cpp</name>
   <version>0.0.7</version>
   <description>Crane Project First Step</description>
-  <maintainer email="kristian.m.knausgard@uia.no">K. M. Knausgård</maintainer>
+  <maintainer email="1713062+kristianmk@users.noreply.github.com">K. M. Knausgård</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
