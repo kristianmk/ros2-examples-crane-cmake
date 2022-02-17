@@ -10,8 +10,8 @@
 #include <string>
 
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp" // See https://github.com/ros2/common_interfaces/tree/master/std_msgs
-
+//#include "std_msgs/msg/string.hpp" // See https://github.com/ros2/common_interfaces/tree/master/std_msgs
+#include "crane_interfaces/msg/crane_reference.hpp"
 
 namespace crane{
    namespace config {
@@ -36,21 +36,21 @@ class CraneReferencePublisher : public rclcpp::Node
       
       // Both craneCylinderVelocityReference and crane_cylinder_velocity_reference are OK names.
       // https://design.ros2.org/articles/topic_and_service_names.html
-      publisher_ = this->create_publisher<std_msgs::msg::String>("craneCylinderVelocityReference", 5);   // QoS: Queue depth 5.
+      publisher_ = this->create_publisher<crane_interfaces::msg::CraneReference>("craneCylinderVelocityReference", 5);   // QoS: Queue depth 5.
       timer_ = this->create_wall_timer(crane::config::dt, std::bind(&CraneReferencePublisher::update_reference, this));
     }
 
   private:
     void update_reference()
     {
-      auto message = std_msgs::msg::String();
-      message.data = "Crane Publisher Node Testing " + std::to_string(step_++);
-      RCLCPP_INFO(this->get_logger(), "Publishing Test Message: '%s'", message.data.c_str());
+      auto message = crane_interfaces::msg::CraneReference();
+      message.crane_cylinder_velocity_reference = step_++;
+      RCLCPP_INFO(this->get_logger(), "Cylinder reference: '%f'", message.crane_cylinder_velocity_reference);
       publisher_->publish(message);
     }
 
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+    rclcpp::Publisher<crane_interfaces::msg::CraneReference>::SharedPtr publisher_;
     size_t step_;
     double craneCylinderVelocityReference_;
 };

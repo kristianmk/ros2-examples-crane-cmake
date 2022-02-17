@@ -9,11 +9,11 @@ endif()
 # Find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
+find_package(crane_interfaces REQUIRED)
 
 # Add executable
 add_executable(crane_commander src/crane_commander.cpp)
-ament_target_dependencies(crane_commander rclcpp std_msgs)
+ament_target_dependencies(crane_commander rclcpp crane_interfaces)
 
 # Install targets
 install(TARGETS
