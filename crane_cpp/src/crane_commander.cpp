@@ -7,13 +7,12 @@
 #include <chrono>
 #include <functional>
 #include <memory>
-#include <string>
 
 #include "rclcpp/rclcpp.hpp"
-//#include "std_msgs/msg/string.hpp" // See https://github.com/ros2/common_interfaces/tree/master/std_msgs
 #include "crane_interfaces/msg/crane_reference.hpp"
 
-namespace crane{
+
+namespace crane {
    namespace config {
       using namespace std::chrono_literals;
       const auto dt = 500ms;
